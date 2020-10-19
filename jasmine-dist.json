@@ -1,0 +1,8 @@
+{
+  "spec_dir": "dist",
+  "spec_files": [
+    "**/tests/*"
+  ],
+  "stopSpecOnExpectationFailure": false,
+  "random": true
+}

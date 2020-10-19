@@ -1,12 +1,17 @@
 {
-  "name": "redux-blitz",
+  "name": "fullstack-template",
   "version": "1.0.0",
   "main": "dist/server/index.js",
   "author": "dudubs876 <dudubs876@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "cross-env TS_NODE_TRANSPILE_ONLY=true node -r source-map-support/register -r ts-node/register src/server/index.ts",
-    "test": "cross-env TS_NODE_TRANSPILE_ONLY=true jasmine --require=ts-node/register --config=jasmine.json"
+    "build": "yarn build-browser && yarn build-server",
+    "build-browser": "webpack",
+    "build-server": "tsc -p server.tsconfig.json",
+    "start": "node dist/server/index.js",
+    "test": "jasmine --config=jasmine-dist.json",
+    "start-dev": "cross-env TS_NODE_TRANSPILE_ONLY=true node -r source-map-support/register -r ts-node/register src/server/index.ts",
+    "test-dev": "cross-env TS_NODE_TRANSPILE_ONLY=true jasmine --require=ts-node/register --config=jasmine.json"
   },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.2",
@@ -18,14 +23,14 @@
     "@types/react": "^16.9.52",
     "@types/react-dom": "^16.9.8",
     "@types/react-redux": "^7.1.9",
-    "@types/redux": "^3.6.0"
+    "@types/redux": "^3.6.0",
+    "@types/request": "^2.48.5",
+    "@types/request-promise": "^4.1.46"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/styles": "^4.10.0",
     "@reduxjs/toolkit": "^1.4.0",
-    "@types/request": "^2.48.5",
-    "@types/request-promise": "^4.1.46",
     "cookie-parser": "^1.4.5",
     "express": "^4.17.1",
     "jasmine": "^3.6.1",
